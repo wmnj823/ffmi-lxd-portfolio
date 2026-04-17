@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yujia Xiang | FFMI Canvas Course Redesign Portfolio</title>
+  <style>
+    :root{
+      --blue-900:#00274c;
+      --blue-800:#0f3d66;
+      --blue-700:#1f5f92;
+      --blue-100:#eef5fb;
+      --blue-050:#f7fbff;
+      --gold:#ffcb05;
+      --ink:#152231;
+      --muted:#5d7085;
+      --line:#d8e3ef;
+      --white:#ffffff;
+      --card:rgba(255,255,255,.88);
+      --shadow-lg:0 26px 60px rgba(0,39,76,.12);
+      --shadow-md:0 12px 28px rgba(0,39,76,.08);
+      --radius-xxl:34px;
+      --radius-xl:26px;
+      --radius-lg:18px;
+      --radius-md:14px;
+      --max:1220px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family: Inter, "Segoe UI", Arial, sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(255,203,5,.18), transparent 18%),
+        radial-gradient(circle at top right, rgba(31,95,146,.12), transparent 25%),
+        linear-gradient(180deg, #fbfdff 0%, #f3f8fc 45%, #edf4fa 100%);
+      line-height:1.72;
+    }
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%}
+
+    .container{
+      width:min(var(--max), calc(100% - 40px));
+      margin:0 auto;
+    }
+
+    .nav-wrap{
+      position:sticky; top:0; z-index:100;
+      backdrop-filter:blur(18px);
+      background:rgba(251,253,255,.82);
+      border-bottom:1px solid rgba(216,227,239,.95);
+    }
+
+    .nav{
+      min-height:76px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .brand{
+      display:flex; flex-direction:column; gap:3px;
+    }
+    .brand strong{
+      font-size:1rem;
+      letter-spacing:-.02em;
+      color:var(--blue-900);
+    }
+    .brand span{
+      font-size:.86rem;
+      color:var(--muted);
+    }
+
+    .nav-links{
+      display:flex; flex-wrap:wrap; gap:18px;
+      align-items:center; justify-content:flex-end;
+    }
+    .nav-links a{
+      font-size:.96rem;
+      color:var(--muted);
+      position:relative;
+      padding:7px 0;
+      transition:color .2s ease;
+    }
+    .nav-links a:hover{color:var(--blue-900)}
+    .nav-links a::after{
+      content:"";
+      position:absolute; left:0; bottom:0;
+      width:100%; height:2px;
+      background:var(--gold);
+      transform:scaleX(0);
+      transform-origin:left;
+      transition:transform .2s ease;
+    }
+    .nav-links a:hover::after{transform:scaleX(1)}
+
+    .section{padding:92px 0}
+    .section-tight{padding:72px 0}
+    .section-head{
+      display:grid; gap:14px;
+      margin-bottom:34px;
+    }
+    .eyebrow{
+      width:fit-content;
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 16px;
+      border-radius:999px;
+      background:rgba(255,255,255,.72);
+      border:1px solid var(--line);
+      color:var(--blue-800);
+      font-size:.8rem;
+      font-weight:800;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      box-shadow:var(--shadow-md);
+    }
+    .eyebrow::before{
+      content:"";
+      width:8px; height:8px; border-radius:50%;
+      background:var(--gold);
+      flex:none;
+    }
+
+    h1,h2,h3,h4,p{margin:0}
+    h1,h2,h3,h4{
+      line-height:1.1;
+      letter-spacing:-.03em;
+    }
+    h1{font-size:clamp(2.8rem, 4.9vw, 5.3rem)}
+    h2{font-size:clamp(2rem, 3vw, 3.25rem)}
+    h3{font-size:1.28rem}
+    h4{font-size:1rem}
+    p{color:var(--muted); font-size:1rem}
+    .lead{max-width:850px; font-size:1.08rem}
+
+    .glass{
+      background:var(--card);
+      backdrop-filter:blur(16px);
+      border:1px solid rgba(255,255,255,.72);
+      box-shadow:var(--shadow-md);
+      border-radius:var(--radius-xxl);
+    }
+
+    .hero{padding:56px 0 36px}
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.12fr .88fr;
+      gap:26px;
+      align-items:stretch;
+    }
+    .hero-main{
+      padding:42px;
+      background:
+        radial-gradient(circle at 92% 14%, rgba(255,203,5,.22), transparent 22%),
+        radial-gradient(circle at 10% 100%, rgba(31,95,146,.09), transparent 26%),
+        rgba(255,255,255,.82);
+    }
+    .hero-main-inner{display:grid; gap:24px}
+    .hero-title{
+      display:grid; gap:18px;
+    }
+    .hero-title p{max-width:760px; font-size:1.08rem}
+    .hero-actions{
+      display:flex; flex-wrap:wrap; gap:12px;
+      margin-top:4px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:14px 20px;
+      border-radius:999px;
+      font-weight:800;
+      font-size:.95rem;
+      border:1px solid var(--line);
+      transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
+    }
+    .btn:hover{transform:translateY(-1px); box-shadow:0 10px 22px rgba(0,39,76,.12)}
+    .btn-primary{
+      background:linear-gradient(180deg, #0e416d 0%, #00274c 100%);
+      color:#fff;
+      border-color:#00274c;
+    }
+    .btn-secondary{
+      background:#fff;
+      color:var(--blue-900);
+    }
+
+    .hero-stats{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:14px;
+    }
+    .stat{
+      padding:18px;
+      border-radius:var(--radius-lg);
+      background:rgba(247,251,255,.92);
+      border:1px solid var(--line);
+      display:grid; gap:8px;
+    }
+    .stat strong{
+      font-size:1.45rem;
+      color:var(--blue-900);
+      line-height:1;
+    }
+    .stat span{
+      font-size:.94rem;
+      color:var(--muted);
+    }
+
+    .hero-side{
+      padding:28px;
+      display:grid;
+      grid-template-rows:auto 1fr;
+      gap:18px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.88) 0%, rgba(247,251,255,.92) 100%);
+    }
+
+    .profile-card{
+      display:grid; gap:18px;
+    }
+    .profile-image-frame{
+      position:relative;
+      border-radius:28px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.86);
+      box-shadow:var(--shadow-lg);
+      background:#dbe8f5;
+      min-height:480px;
+    }
+    .profile-image-frame img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:center top;
+    }
+    .profile-badge{
+      position:absolute;
+      left:16px; top:16px;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(0,39,76,.88);
+      color:#fff;
+      font-size:.82rem;
+      font-weight:800;
+      letter-spacing:.04em;
+      box-shadow:var(--shadow-md);
+    }
+    .profile-text{
+      display:grid; gap:10px;
+      padding:4px 4px 0;
+    }
+    .profile-text h3{color:var(--blue-900)}
+    .mini-facts{
+      display:grid; gap:10px;
+      margin-top:4px;
+    }
+    .mini-fact{
+      padding:14px 16px;
+      border-radius:16px;
+      background:rgba(255,255,255,.74);
+      border:1px solid var(--line);
+      display:grid; gap:4px;
+    }
+    .mini-fact span{
+      font-size:.78rem; text-transform:uppercase; letter-spacing:.06em;
+      color:var(--muted); font-weight:800;
+    }
+    .mini-fact strong{
+      font-size:1rem; color:var(--ink); line-height:1.4;
+    }
+
+    .grid-2{
+      display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px;
+    }
+    .grid-3{
+      display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px;
+    }
+    .card{
+      padding:28px;
+      display:grid;
+      gap:14px;
+    }
+    .card ul{
+      list-style:none;
+      padding:0; margin:0;
+      display:grid; gap:10px;
+    }
+    .card li{
+      position:relative; padding-left:18px; color:var(--muted);
+    }
+    .card li::before{
+      content:"•";
+      position:absolute; left:0; top:0;
+      color:var(--blue-700); font-weight:900;
+    }
+
+    .pattern-grid{
+      display:grid;
+      grid-template-columns:repeat(4,minmax(0,1fr));
+      gap:16px;
+      margin-top:10px;
+    }
+    .pattern-step{
+      padding:20px;
+      border-radius:22px;
+      background:rgba(255,255,255,.86);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow-md);
+      display:grid; gap:8px;
+      position:relative;
+    }
+    .pattern-step .num{
+      width:34px; height:34px;
+      display:grid; place-items:center;
+      border-radius:50%;
+      background:var(--blue-900);
+      color:#fff;
+      font-size:.86rem;
+      font-weight:900;
+    }
+    .pattern-step strong{
+      color:var(--ink); font-size:1rem; line-height:1.35;
+    }
+    .pattern-step p{font-size:.94rem}
+
+    .story-stack{
+      display:grid; gap:28px;
+    }
+    .feature{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+      align-items:center;
+    }
+    .feature.reverse .feature-text{order:2}
+    .feature.reverse .feature-media{order:1}
+
+    .feature-text{
+      padding:30px;
+      border-radius:30px;
+      background:rgba(255,255,255,.88);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow-md);
+      display:grid; gap:16px;
+    }
+    .feature-meta{
+      display:flex; flex-wrap:wrap; gap:10px;
+      align-items:center;
+    }
+    .label{
+      padding:8px 12px;
+      border-radius:999px;
+      background:var(--blue-100);
+      border:1px solid var(--line);
+      color:var(--blue-800);
+      font-size:.8rem;
+      font-weight:800;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      width:fit-content;
+    }
+    .feature-text p{font-size:.98rem}
+    .feature-list{
+      list-style:none; padding:0; margin:0;
+      display:grid; gap:10px;
+    }
+    .feature-list li{
+      position:relative; padding-left:18px; color:var(--muted);
+    }
+    .feature-list li::before{
+      content:"";
+      position:absolute; left:0; top:.55em;
+      width:8px; height:8px; border-radius:50%;
+      background:var(--gold);
+      transform:translateY(-50%);
+    }
+
+    .feature-media{
+      display:grid; gap:12px;
+    }
+    .window{
+      border-radius:28px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.78);
+      box-shadow:var(--shadow-lg);
+      background:#fff;
+    }
+    .window-bar{
+      height:44px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:0 18px;
+      background:linear-gradient(180deg, #f8fbfe 0%, #eef4fa 100%);
+      border-bottom:1px solid var(--line);
+    }
+    .window-bar span{
+      width:12px; height:12px; border-radius:50%;
+      background:#d6e2ee;
+    }
+    .window-bar span:nth-child(1){background:#f08271}
+    .window-bar span:nth-child(2){background:#f4c04e}
+    .window-bar span:nth-child(3){background:#63c174}
+    .window img{
+      width:100%;
+      height:auto;
+      background:#fff;
+    }
+    .caption{
+      padding:0 8px;
+      font-size:.92rem;
+      color:var(--muted);
+    }
+
+    .extensions{
+      display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px;
+      margin-top:6px;
+    }
+    .extension-card{
+      padding:24px;
+      border-radius:24px;
+      background:rgba(255,255,255,.9);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow-md);
+      display:grid; gap:12px;
+    }
+    .extension-card h3{color:var(--blue-900)}
+
+    .doc-grid{
+      display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px;
+      margin-top:10px;
+    }
+    .doc-link{
+      padding:18px 20px;
+      border-radius:20px;
+      background:rgba(255,255,255,.9);
+      border:1px solid var(--line);
+      display:flex; justify-content:space-between; align-items:center; gap:14px;
+      box-shadow:var(--shadow-md);
+      transition:transform .18s ease, box-shadow .18s ease;
+    }
+    .doc-link:hover{transform:translateY(-2px); box-shadow:var(--shadow-lg)}
+    .doc-link strong{font-size:1rem; color:var(--ink)}
+    .doc-link span{
+      font-size:.84rem; color:var(--blue-800); font-weight:800; text-transform:uppercase; letter-spacing:.05em;
+      white-space:nowrap;
+    }
+
+    .outcome-grid{
+      display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px;
+      margin-top:4px;
+    }
+    .outcome{
+      padding:24px;
+      border-radius:24px;
+      background:rgba(255,255,255,.92);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow-md);
+      display:grid; gap:12px;
+    }
+    .outcome strong{font-size:1.06rem; color:var(--blue-900)}
+
+    .footer{
+      padding:36px 0 56px;
+    }
+    .footer-box{
+      border-top:1px solid var(--line);
+      padding-top:24px;
+      display:flex; flex-wrap:wrap; gap:16px;
+      justify-content:space-between;
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    @media (max-width: 1100px){
+      .pattern-grid, .extensions, .outcome-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .hero-grid{grid-template-columns:1fr}
+    }
+
+    @media (max-width: 900px){
+      .feature, .feature.reverse, .grid-2, .grid-3, .doc-grid{grid-template-columns:1fr}
+      .feature.reverse .feature-text,
+      .feature.reverse .feature-media{order:initial}
+      .hero-stats{grid-template-columns:1fr}
+    }
+
+    @media (max-width: 700px){
+      .nav{padding:14px 0; align-items:flex-start; flex-direction:column}
+      .hero-main, .hero-side, .feature-text, .card, .extension-card, .outcome{padding:22px}
+      .pattern-grid, .extensions, .outcome-grid{grid-template-columns:1fr}
+      .container{width:min(var(--max), calc(100% - 24px))}
+      .profile-image-frame{min-height:360px}
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <div class="container nav">
+      <a class="brand" href="#top">
+        <strong>Yujia Xiang</strong>
+        <span>FFMI Canvas Course Redesign Portfolio</span>
+      </a>
+      <div class="nav-links">
+        <a href="#overview">Overview</a>
+        <a href="#revisions">Revisions</a>
+        <a href="#extensions">Extensions</a>
+        <a href="#documents">Documents</a>
+        <a href="#about">About</a>
+      </div>
+    </div>
+  </div>
+
+  <header class="hero" id="top">
+    <div class="container hero-grid">
+      <div class="hero-main glass">
+        <div class="hero-main-inner">
+          <span class="eyebrow">Final Portfolio Case Study</span>
+          <div class="hero-title">
+            <h1>Making a biomedical innovation course more learner-facing, action-oriented, and coherent in Canvas.</h1>
+            <p>
+              This portfolio presents my final redesign work for the FFMI project at the University of Michigan Medical School.
+              Over the last two weeks, I revised a series of Canvas course pages for a medical device commercialization course,
+              keeping the weekly structure intact while making the learning experience more guided, more applied, and more supportive of early-stage reasoning.
+            </p>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#revisions">Explore the revisions</a>
+            <a class="btn btn-secondary" href="#documents">Open supporting files</a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="stat">
+              <strong>5</strong>
+              <span>Implemented or finalized Canvas page revisions documented with screenshots</span>
+            </div>
+            <div class="stat">
+              <strong>1</strong>
+              <span>Course-wide design pattern used to make pages more consistent and learner-guided</span>
+            </div>
+            <div class="stat">
+              <strong>2+</strong>
+              <span>Additional weekly extensions and activity ideas integrated into the broader redesign</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-side glass" id="about">
+        <div class="profile-card">
+          <div class="profile-image-frame">
+            <span class="profile-badge">LXD Portfolio</span>
+            <img src="assets/images/portrait.jpg" alt="Portrait of Yujia Xiang">
+          </div>
+          <div class="profile-text">
+            <h3>Yujia Xiang</h3>
+            <p>
+              M.A. student in Educational Studies at the University of Michigan, with an LXD-focused internship experience in FFMI.
+              In this project, I worked on reviewing and revising Canvas instruction for biomedical innovation, especially where complex professional content needed stronger learner-facing structure.
+            </p>
+            <div class="mini-facts">
+              <div class="mini-fact">
+                <span>Project role</span>
+                <strong>Course reviewer, redesign writer, and learner-support designer</strong>
+              </div>
+              <div class="mini-fact">
+                <span>Primary goal</span>
+                <strong>Turn informational course pages into more usable learning supports</strong>
+              </div>
+              <div class="mini-fact">
+                <span>Context</span>
+                <strong>Medical device commercialization course in Canvas</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <section class="section-tight" id="overview">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Project Overview</span>
+          <h2>What I changed, and why it mattered</h2>
+          <p class="lead">
+            I did not completely redesign the course structure. The weekly modules were already clearly organized.
+            Instead, I focused on improving how learners moved through the existing pages. In several places, the original course provided strong resources and relevant content,
+            but the pages still felt more informational than instructional. My revisions aimed to make those pages more learner-facing, more action-oriented, and more closely tied to concrete next steps.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <div class="card glass">
+            <h3>Original course strengths</h3>
+            <ul>
+              <li>Clear weekly module sequence</li>
+              <li>Strong emphasis on customer discovery and business case development</li>
+              <li>Useful resource links, worksheets, and videos by track</li>
+              <li>Logical progression across innovation, regulation, and commercialization</li>
+            </ul>
+          </div>
+          <div class="card glass">
+            <h3>My redesign focus</h3>
+            <ul>
+              <li>Clarify why each weekly topic matters at that point in the course</li>
+              <li>Guide learners' attention before they watch videos or use resources</li>
+              <li>Add lightweight activities and prompts that support project-based application</li>
+              <li>Strengthen the connection between page content and concrete deliverables</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Course-wide Design Pattern</span>
+          <h2>A clearer rhythm across the course pages</h2>
+          <p class="lead">
+            Across the revisions, I tried to establish a consistent design logic. Instead of treating each page mainly as a place to hold information,
+            I used a repeating learner-support pattern that could work across different topics and weeks.
+          </p>
+        </div>
+
+        <div class="pattern-grid">
+          <div class="pattern-step">
+            <div class="num">1</div>
+            <strong>Explain why the topic matters now</strong>
+            <p>Start by situating the page in the learner’s current stage of project development.</p>
+          </div>
+          <div class="pattern-step">
+            <div class="num">2</div>
+            <strong>Focus attention with guiding questions</strong>
+            <p>Help students know what to look for before they read, watch, or download anything.</p>
+          </div>
+          <div class="pattern-step">
+            <div class="num">3</div>
+            <strong>Add a lightweight way to apply the idea</strong>
+            <p>Use short prompts or activities so students can connect the topic back to their own innovation.</p>
+          </div>
+          <div class="pattern-step">
+            <div class="num">4</div>
+            <strong>Connect the page to a deliverable or next step</strong>
+            <p>Make the learning path feel more coherent instead of leaving the transition to the next task implicit.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="revisions">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Implemented Canvas Revisions</span>
+          <h2>Selected pages I revised directly in Canvas</h2>
+          <p class="lead">
+            The sections below follow the order of the course itself. Together, they show how I revised page framing, resource use, learner prompts,
+            and assignment alignment while keeping the course’s existing structure recognizable.
+          </p>
+        </div>
+
+        <div class="story-stack">
+          <article class="feature">
+            <div class="feature-text">
+              <div class="feature-meta">
+                <span class="label">Pre-course addition</span>
+              </div>
+              <h3>Device Concept Brief: from broad value proposition to clearer innovation framing</h3>
+              <p>
+                In the pre-course customer discovery section, the original materials already introduced stakeholder mapping, value proposition work,
+                and customer discovery interviews. What still felt missing was a structured step that helps learners turn that early discovery work
+                into a clearer device or innovation concept.
+              </p>
+              <ul class="feature-list">
+                <li>I drafted a new page called <strong>Device Concept Brief: From Value Proposition to Device Framing</strong>.</li>
+                <li>This addition helps students connect unmet need, intended use, target user, use setting, and early value proposition before moving into later work on regulation, IP, and commercialization.</li>
+                <li>The page functions as a bridge from broad customer discovery language into more focused medical-device framing.</li>
+              </ul>
+            </div>
+            <div class="feature-media">
+              <figure class="window">
+                <div class="window-bar"><span></span><span></span><span></span></div>
+                <a href="assets/images/device-concept-brief.png" target="_blank">
+                  <img src="assets/images/device-concept-brief.png" alt="Canvas page for Device Concept Brief prompts">
+                </a>
+              </figure>
+              <p class="caption">New learner-facing prompt page designed to help students clarify the device concept before later commercialization work.</p>
+            </div>
+          </article>
+
+          <article class="feature reverse">
+            <div class="feature-text">
+              <div class="feature-meta">
+                <span class="label">Week 1</span>
+                <span class="label">Opportunity sizing and monetization</span>
+              </div>
+              <h3>A more guided regulatory starting point for early project reasoning</h3>
+              <p>
+                Week 1 originally introduced opportunity sizing and monetization through useful resources, but the page still felt somewhat like a resource page rather than a learner-guided page.
+                I revised it to create a clearer entry point into early reasoning for medical devices.
+              </p>
+              <ul class="feature-list">
+                <li>I rewrote the opening to explain why early regulatory awareness matters before thinking about market size, monetization, or adoption.</li>
+                <li>I added a lightweight class overview and framing language so learners can begin thinking in terms of lower, moderate, or higher risk.</li>
+                <li>I also designed related Week 1 activities such as <strong>Who Pays vs. Who Benefits?</strong> and <strong>Choose Your Route</strong> to help teams distinguish users, beneficiaries, decision-makers, and payers.</li>
+              </ul>
+            </div>
+            <div class="feature-media">
+              <figure class="window">
+                <div class="window-bar"><span></span><span></span><span></span></div>
+                <a href="assets/images/week1-regulatory-starting-point.png" target="_blank">
+                  <img src="assets/images/week1-regulatory-starting-point.png" alt="Week 1 regulatory starting point page in Canvas">
+                </a>
+              </figure>
+              <p class="caption">Revised Week 1 page introducing an early regulatory starting point before opportunity sizing and monetization decisions.</p>
+            </div>
+          </article>
+
+          <article class="feature">
+            <div class="feature-text">
+              <div class="feature-meta">
+                <span class="label">Week 1 assignment alignment</span>
+              </div>
+              <h3>Making the submission page reflect the revised learning goals</h3>
+              <p>
+                I also revised the Week 1 submission page so that the assignment instructions aligned more directly with the new Week 1 content.
+                Rather than leaving the connection between page reading and submission implicit, the updated prompts ask teams to carry their reasoning into a short written deliverable.
+              </p>
+              <ul class="feature-list">
+                <li>Students are prompted to explain the opportunity, identify who is affected, distinguish who benefits and who pays, and select one plausible route.</li>
+                <li>This turns Week 1 into a more coherent instructional sequence rather than a page plus an only loosely related submission point.</li>
+                <li>The revision supports a stronger transition from learning content to visible student reasoning.</li>
+              </ul>
+            </div>
+            <div class="feature-media">
+              <figure class="window">
+                <div class="window-bar"><span></span><span></span><span></span></div>
+                <a href="assets/images/week1-submission-page.png" target="_blank">
+                  <img src="assets/images/week1-submission-page.png" alt="Week 1 essay submission page in Canvas">
+                </a>
+              </figure>
+              <p class="caption">Aligned submission prompts that ask students to turn Week 1 reasoning into a concise written response.</p>
+            </div>
+          </article>
+
+          <article class="feature reverse">
+            <div class="feature-text">
+              <div class="feature-meta">
+                <span class="label">Week 3</span>
+                <span class="label">Regulatory considerations</span>
+              </div>
+              <h3>Turning a resource repository into a guided regulatory learning page</h3>
+              <p>
+                Week 3 was one of the most important revisions. The original page already contained track-specific worksheets, videos, IND versus IDE resources,
+                and consultation links, but the page still felt more like a collection of materials than a structured learning experience.
+              </p>
+              <ul class="feature-list">
+                <li>I added a short introduction explaining why regulatory considerations matter early, not only at the end.</li>
+                <li>I created a <strong>How to use this page</strong> section so students know what to review first, what to download, and how to use the track-specific materials.</li>
+                <li>I clarified that the goal is not immediate certainty, but early regulatory questioning about evidence, documentation, and pathway uncertainty.</li>
+              </ul>
+            </div>
+            <div class="feature-media">
+              <figure class="window">
+                <div class="window-bar"><span></span><span></span><span></span></div>
+                <a href="assets/images/week3-regulatory-considerations.png" target="_blank">
+                  <img src="assets/images/week3-regulatory-considerations.png" alt="Week 3 regulatory considerations page in Canvas">
+                </a>
+              </figure>
+              <p class="caption">Reframed Week 3 page with clearer purpose, clearer entry points, and more intentional use of track-specific resources.</p>
+            </div>
+          </article>
+
+          <article class="feature">
+            <div class="feature-text">
+              <div class="feature-meta">
+                <span class="label">Week 4</span>
+                <span class="label">Making your business case</span>
+              </div>
+              <h3>Rewriting a weekly announcement into a real learning guide</h3>
+              <p>
+                The original Week 4 page explained that students would focus on customer discovery before the finale.
+                That message was useful, but I wanted the page to do more than function as an announcement.
+                My revision turned it into a weekly guide that supports deeper preparation for the final business case.
+              </p>
+              <ul class="feature-list">
+                <li>I rewrote the page to explain why this week matters and how customer discovery strengthens the final case.</li>
+                <li>I added guiding questions about what the team still needs to learn, which stakeholder perspectives are missing, and what evidence could strengthen the pitch.</li>
+                <li>I reframed office hours as a meaningful design and feedback opportunity instead of a simple reminder.</li>
+              </ul>
+            </div>
+            <div class="feature-media">
+              <figure class="window">
+                <div class="window-bar"><span></span><span></span><span></span></div>
+                <a href="assets/images/week4-business-case.png" target="_blank">
+                  <img src="assets/images/week4-business-case.png" alt="Week 4 making your business case page in Canvas">
+                </a>
+              </figure>
+              <p class="caption">Week 4 redesigned as a weekly guide, with focus questions and a stronger link between customer discovery and final pitch preparation.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-tight" id="extensions">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Additional Design Extensions</span>
+          <h2>Further revisions integrated into the broader course redesign</h2>
+          <p class="lead">
+            In addition to the pages shown above, I also proposed or drafted several smaller activity-based revisions that strengthen the course without changing its overall structure.
+          </p>
+        </div>
+
+        <div class="extensions">
+          <div class="extension-card">
+            <span class="label">Week 2</span>
+            <h3>Competitive analysis and IP activities</h3>
+            <p>
+              I designed activity ideas such as <strong>Better Than What?</strong> and <strong>Search Like a Detective</strong> to give students a lighter, more concrete entry point into competitive analysis and prior art thinking before the formal assignment.
+            </p>
+          </div>
+          <div class="extension-card">
+            <span class="label">Week 3 checkpoint</span>
+            <h3>Presentation guide revision</h3>
+            <p>
+              I revised the Week 3 progress presentation instructions so the page communicates not only what slides students should include, but also what kind of performance the checkpoint presentation is meant to support.
+            </p>
+          </div>
+          <div class="extension-card">
+            <span class="label">Week 5</span>
+            <h3>Milestone interpretation and reflection prompts</h3>
+            <p>
+              For the Critical Milestones page, I added interpretation prompts and reflection questions so students can connect milestone videos back to their own innovation rather than simply selecting and watching a track-specific resource.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">What this portfolio shows</span>
+          <h2>The larger design contribution behind the page-level changes</h2>
+        </div>
+
+        <div class="outcome-grid">
+          <div class="outcome">
+            <strong>Consistency across the learner experience</strong>
+            <p>I worked toward a clearer page pattern so the course feels more coherent week to week instead of shifting between resources, announcements, and assignments without shared instructional logic.</p>
+          </div>
+          <div class="outcome">
+            <strong>Better alignment between content and action</strong>
+            <p>The revisions consistently move learners from reading or watching into applying, interpreting, or preparing a concrete next step.</p>
+          </div>
+          <div class="outcome">
+            <strong>A stronger LXD framing of course revision</strong>
+            <p>This work shows how Canvas pages can function not only as containers for information, but as learning supports that guide attention, reasoning, and project-based application.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="documents">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Supporting Documents</span>
+          <h2>Project files and design materials</h2>
+          <p class="lead">
+            These files document the broader analysis and design work that informed the Canvas revisions, including gap analysis, learning goals, learner-facing templates, commercialization timeline work, and supporting course materials.
+          </p>
+        </div>
+
+        <div class="doc-grid">
+          <a class="doc-link" href="assets/docs/integrated-gap-analysis-learning-goals.pdf" target="_blank">
+            <strong>Integrated Gap Analysis and Learning Goals</strong><span>Open PDF</span>
+          </a>
+          <a class="doc-link" href="assets/docs/regulatory-affairs-additions.pdf" target="_blank">
+            <strong>Regulatory Affairs Additions</strong><span>Open PDF</span>
+          </a>
+          <a class="doc-link" href="assets/docs/commercialization-timeline.pdf" target="_blank">
+            <strong>Commercialization Timeline</strong><span>Open PDF</span>
+          </a>
+          <a class="doc-link" href="assets/docs/medical-device-learning-templates.pdf" target="_blank">
+            <strong>FFMI Medical Device Learning Templates</strong><span>Open PDF</span>
+          </a>
+          <a class="doc-link" href="assets/docs/learner-facing-templates.pdf" target="_blank">
+            <strong>Learner-Facing Templates</strong><span>Open PDF</span>
+          </a>
+          <a class="doc-link" href="assets/docs/commercial-tasks.pdf" target="_blank">
+            <strong>Commercial Tasks</strong><span>Open PDF</span>
+          </a>
+          <a class="doc-link" href="assets/docs/gaps.pdf" target="_blank">
+            <strong>GAPS</strong><span>Open PDF</span>
+          </a>
+          <a class="doc-link" href="assets/docs/course-source-material.docx" target="_blank">
+            <strong>Source course material (Doc2)</strong><span>Open Docx</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-tight">
+      <div class="container">
+        <div class="card glass">
+          <span class="eyebrow">Final Reflection</span>
+          <h2 style="margin-top:2px">From informational pages to learning supports</h2>
+          <p class="lead" style="max-width:none">
+            Across all of these changes, my main design goal was consistency and usability. I wanted the course pages to follow a clearer pattern:
+            first explain why the topic matters, then focus students’ attention with a few guiding questions, then give them a lightweight way to apply the idea to their own project,
+            and finally connect that work to a concrete deliverable or next step. Rather than treating pages mainly as places to hold information,
+            I tried to make them work more like learning supports. This portfolio represents that shift clearly: from reviewing course materials to actively shaping a more guided, coherent, and actionable learner experience in Canvas.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-box">
+      <div>
+        <strong style="color:var(--blue-900)">Yujia Xiang</strong><br>
+        <span>FFMI Canvas Course Redesign Portfolio</span>
+      </div>
+      <div>
+        Built as a final submission-ready portfolio page for direct viewing and GitHub Pages publishing.
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
