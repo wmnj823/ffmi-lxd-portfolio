@@ -429,6 +429,100 @@
     }
     .extension-card h3{color:var(--blue-900)}
 
+    .artifact-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:2px;
+    }
+    .artifact-link{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(247,251,255,.96);
+      border:1px solid var(--line);
+      color:var(--blue-900);
+      font-size:.84rem;
+      font-weight:800;
+      letter-spacing:.01em;
+      transition:transform .18s ease, box-shadow .18s ease;
+      box-shadow:var(--shadow-md);
+    }
+    .artifact-link:hover{
+      transform:translateY(-1px);
+      box-shadow:var(--shadow-lg);
+    }
+    .artifact-link::before{
+      content:"↗";
+      font-size:.9rem;
+      color:var(--blue-700);
+      line-height:1;
+    }
+
+    .competency-grid{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:22px;
+      margin-top:12px;
+    }
+    .competency-card{
+      padding:28px;
+      border-radius:28px;
+      background:rgba(255,255,255,.92);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow-md);
+      display:grid;
+      gap:14px;
+    }
+    .competency-card h3{
+      color:var(--blue-900);
+      font-size:1.22rem;
+      line-height:1.25;
+    }
+    .competency-card p{
+      font-size:.98rem;
+    }
+    .competency-card ul{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:grid;
+      gap:10px;
+    }
+    .competency-card li{
+      position:relative;
+      padding-left:18px;
+      color:var(--muted);
+      font-size:.97rem;
+    }
+    .competency-card li::before{
+      content:"•";
+      position:absolute;
+      left:0;
+      top:0;
+      color:var(--gold);
+      font-weight:900;
+    }
+    .competency-subtitle{
+      font-size:.78rem;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+      font-weight:800;
+      color:var(--blue-700);
+    }
+    .competency-callout{
+      padding:24px 26px;
+      border-radius:24px;
+      background:linear-gradient(180deg, rgba(255,255,255,.94) 0%, rgba(238,245,251,.94) 100%);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow-md);
+      display:grid;
+      gap:12px;
+      margin-top:10px;
+    }
+
     .doc-grid{
       display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px;
       margin-top:10px;
@@ -463,40 +557,6 @@
     }
     .outcome strong{font-size:1.06rem; color:var(--blue-900)}
 
-    .growth-grid{
-      display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px;
-      margin-top:8px;
-    }
-    .growth-card{
-      padding:26px;
-      border-radius:24px;
-      background:rgba(255,255,255,.92);
-      border:1px solid var(--line);
-      box-shadow:var(--shadow-md);
-      display:grid; gap:12px;
-    }
-    .growth-card h3{color:var(--blue-900)}
-    .growth-card p{font-size:.98rem}
-    .skill-list{
-      list-style:none; padding:0; margin:0;
-      display:grid; gap:10px;
-    }
-    .skill-list li{
-      position:relative; padding-left:18px; color:var(--muted);
-    }
-    .skill-list li::before{
-      content:""; position:absolute; left:0; top:.55em; width:8px; height:8px; border-radius:50%;
-      background:var(--gold); transform:translateY(-50%);
-    }
-    .journey-grid{
-      display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px;
-      margin-top:8px;
-    }
-    .journey-card{
-      padding:24px; border-radius:24px; background:rgba(255,255,255,.92); border:1px solid var(--line); box-shadow:var(--shadow-md); display:grid; gap:10px;
-    }
-    .journey-card strong{font-size:1.04rem; color:var(--blue-900)}
-
     .footer{
       padding:36px 0 56px;
     }
@@ -510,12 +570,12 @@
     }
 
     @media (max-width: 1100px){
-      .pattern-grid, .extensions, .outcome-grid, .journey-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .pattern-grid, .extensions, .outcome-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
       .hero-grid{grid-template-columns:1fr}
     }
 
     @media (max-width: 900px){
-      .feature, .feature.reverse, .grid-2, .grid-3, .doc-grid, .growth-grid{grid-template-columns:1fr}
+      .feature, .feature.reverse, .grid-2, .grid-3, .doc-grid, .competency-grid{grid-template-columns:1fr}
       .feature.reverse .feature-text,
       .feature.reverse .feature-media{order:initial}
       .hero-stats{grid-template-columns:1fr}
@@ -524,7 +584,7 @@
     @media (max-width: 700px){
       .nav{padding:14px 0; align-items:flex-start; flex-direction:column}
       .hero-main, .hero-side, .feature-text, .card, .extension-card, .outcome{padding:22px}
-      .pattern-grid, .extensions, .outcome-grid, .journey-grid{grid-template-columns:1fr}
+      .pattern-grid, .extensions, .outcome-grid{grid-template-columns:1fr}
       .container{width:min(var(--max), calc(100% - 24px))}
       .profile-image-frame{min-height:360px}
     }
@@ -541,7 +601,7 @@
         <a href="#overview">Overview</a>
         <a href="#revisions">Revisions</a>
         <a href="#extensions">Extensions</a>
-        <a href="#growth">Growth</a>
+        <a href="#competencies">Core Competencies</a>
         <a href="#documents">Documents</a>
         <a href="#about">About</a>
       </div>
@@ -716,6 +776,10 @@
                 <li>This addition helps students connect unmet need, intended use, target user, use setting, and early value proposition before moving into later work on regulation, IP, and commercialization.</li>
                 <li>The page functions as a bridge from broad customer discovery language into more focused medical-device framing.</li>
               </ul>
+              <div class="artifact-links">
+                <a class="artifact-link" href="assets/docs/learner-facing-templates.pdf" target="_blank">Related artifact: Learner-Facing Templates</a>
+                <a class="artifact-link" href="assets/docs/integrated-gap-analysis-learning-goals.pdf" target="_blank">Related artifact: Gap Analysis and Learning Goals</a>
+              </div>
             </div>
             <div class="feature-media">
               <figure class="window">
@@ -744,6 +808,10 @@
                 <li>I added a lightweight class overview and framing language so learners can begin thinking in terms of lower, moderate, or higher risk.</li>
                 <li>I also designed related Week 1 activities such as <strong>Who Pays vs. Who Benefits?</strong> and <strong>Choose Your Route</strong> to help teams distinguish users, beneficiaries, decision-makers, and payers.</li>
               </ul>
+              <div class="artifact-links">
+                <a class="artifact-link" href="assets/docs/regulatory-affairs-additions.pdf" target="_blank">Related artifact: Regulatory Affairs Additions</a>
+                <a class="artifact-link" href="assets/docs/commercial-tasks.pdf" target="_blank">Related artifact: Commercial Tasks</a>
+              </div>
             </div>
             <div class="feature-media">
               <figure class="window">
@@ -771,6 +839,10 @@
                 <li>This turns Week 1 into a more coherent instructional sequence rather than a page plus an only loosely related submission point.</li>
                 <li>The revision supports a stronger transition from learning content to visible student reasoning.</li>
               </ul>
+              <div class="artifact-links">
+                <a class="artifact-link" href="assets/docs/commercialization-timeline.pdf" target="_blank">Related artifact: Commercialization Timeline</a>
+                <a class="artifact-link" href="assets/docs/course-source-material.docx" target="_blank">Related artifact: Source Course Material</a>
+              </div>
             </div>
             <div class="feature-media">
               <figure class="window">
@@ -799,6 +871,10 @@
                 <li>I created a <strong>How to use this page</strong> section so students know what to review first, what to download, and how to use the track-specific materials.</li>
                 <li>I clarified that the goal is not immediate certainty, but early regulatory questioning about evidence, documentation, and pathway uncertainty.</li>
               </ul>
+              <div class="artifact-links">
+                <a class="artifact-link" href="assets/docs/regulatory-affairs-additions.pdf" target="_blank">Related artifact: Regulatory Affairs Additions</a>
+                <a class="artifact-link" href="assets/docs/course-source-material.docx" target="_blank">Related artifact: Source Course Material</a>
+              </div>
             </div>
             <div class="feature-media">
               <figure class="window">
@@ -828,6 +904,10 @@
                 <li>I added guiding questions about what the team still needs to learn, which stakeholder perspectives are missing, and what evidence could strengthen the pitch.</li>
                 <li>I reframed office hours as a meaningful design and feedback opportunity instead of a simple reminder.</li>
               </ul>
+              <div class="artifact-links">
+                <a class="artifact-link" href="assets/docs/commercial-tasks.pdf" target="_blank">Related artifact: Commercial Tasks</a>
+                <a class="artifact-link" href="assets/docs/course-source-material.docx" target="_blank">Related artifact: Source Course Material</a>
+              </div>
             </div>
             <div class="feature-media">
               <figure class="window">
@@ -860,6 +940,9 @@
             <p>
               I designed activity ideas such as <strong>Better Than What?</strong> and <strong>Search Like a Detective</strong> to give students a lighter, more concrete entry point into competitive analysis and prior art thinking before the formal assignment.
             </p>
+            <div class="artifact-links">
+              <a class="artifact-link" href="assets/docs/commercial-tasks.pdf" target="_blank">View Commercial Tasks</a>
+            </div>
           </div>
           <div class="extension-card">
             <span class="label">Week 3 checkpoint</span>
@@ -867,6 +950,9 @@
             <p>
               I revised the Week 3 progress presentation instructions so the page communicates not only what slides students should include, but also what kind of performance the checkpoint presentation is meant to support.
             </p>
+            <div class="artifact-links">
+              <a class="artifact-link" href="assets/docs/course-source-material.docx" target="_blank">View Source Course Material</a>
+            </div>
           </div>
           <div class="extension-card">
             <span class="label">Week 5</span>
@@ -874,6 +960,9 @@
             <p>
               For the Critical Milestones page, I added interpretation prompts and reflection questions so students can connect milestone videos back to their own innovation rather than simply selecting and watching a track-specific resource.
             </p>
+            <div class="artifact-links">
+              <a class="artifact-link" href="assets/docs/commercialization-timeline.pdf" target="_blank">View Commercialization Timeline</a>
+            </div>
           </div>
         </div>
       </div>
@@ -903,76 +992,131 @@
       </div>
     </section>
 
-    <section class="section-tight" id="growth">
+    <section class="section" id="competencies">
       <div class="container">
         <div class="section-head">
-          <span class="eyebrow">Competency Growth</span>
-          <h2>How this project strengthened my design abilities</h2>
+          <span class="eyebrow">LXD Core Competencies</span>
+          <h2>Explicit connections to the six LXD Core Competencies</h2>
           <p class="lead">
-            Beyond the page-level revisions, this portfolio also reflects how my thinking developed during the internship.
-            What began as course review gradually became a more intentional LXD process: identifying friction points, clarifying learning purpose, writing for action, and building stronger alignment between page content and learner performance.
+            This portfolio is designed to function as a professional case study as well as a course submission, so this section makes the competency links explicit.
+            Across the artifacts in this project, I demonstrated growth in all six of our course’s LXD Core Competencies: applying learning theories and design frameworks; creating design resources and project documentation; fostering workplace skills and professional relationships; integrating inclusive design principles and practices; using knowledge of technology affordances and constraints; and using research and evaluation skills.
           </p>
         </div>
 
-        <div class="growth-grid">
-          <div class="growth-card">
-            <span class="label">Growth area 01</span>
-            <h3>Moving from review comments to instructional decisions</h3>
-            <p>
-              Earlier in the project, I was mainly identifying what felt unclear or missing. Through this work, I became better at turning those observations into design decisions: what explanation should come first, what guiding question should be added, what kind of prompt would help learners act, and what next step the page should support.
-            </p>
-          </div>
+        <div class="competency-callout">
+          <strong style="color:var(--blue-900); font-size:1.08rem;">How this section works</strong>
+          <p>
+            Each card below names one official LXD Core Competency, explains how the work in this portfolio demonstrates that competency, and points to specific artifacts as evidence.
+            Together, these connections show not only what I produced during the residency, but also how the work shaped my current understanding of learning experience design as a professional practice.
+          </p>
+        </div>
 
-          <div class="growth-card">
-            <span class="label">Growth area 02</span>
-            <h3>Designing with learner action in mind</h3>
+        <div class="competency-grid">
+          <article class="competency-card">
+            <span class="competency-subtitle">Core Competency 1</span>
+            <h3>Applying Learning Theories and Design Frameworks</h3>
             <p>
-              One of the biggest shifts for me was learning to see course pages not simply as places that hold content, but as moments in a learner journey. That changed how I revised pages. Instead of only making them clearer, I tried to make them usable, so that students would know what to notice, what to reflect on, and what to do next.
+              My revisions consistently used an alignment mindset. I focused on making each page do more instructional work by clarifying why the topic mattered, what learners should pay attention to, and how the page connected to a concrete next step or deliverable.
             </p>
-          </div>
+            <ul>
+              <li>The revised Week 1 submission page made the relationship between weekly content and student performance more explicit.</li>
+              <li>The course-wide design pattern shows how I was thinking in terms of instructional sequence rather than page-by-page editing alone.</li>
+              <li>This work strengthened my ability to use alignment and scaffolding as design frameworks for course revision.</li>
+            </ul>
+            <div class="artifact-links">
+              <a class="artifact-link" href="assets/images/week1-submission-page.png" target="_blank">Evidence: Week 1 Submission Revision</a>
+              <a class="artifact-link" href="assets/docs/integrated-gap-analysis-learning-goals.pdf" target="_blank">Evidence: Gap Analysis and Learning Goals</a>
+            </div>
+          </article>
 
-          <div class="growth-card">
-            <span class="label">Growth area 03</span>
-            <h3>Working inside a specialized domain without losing learner clarity</h3>
+          <article class="competency-card">
+            <span class="competency-subtitle">Core Competency 2</span>
+            <h3>Creating Design Resources and Project Documentation</h3>
             <p>
-              This project also strengthened my confidence in translating expert-facing content for learners. Biomedical innovation, regulation, and commercialization involve complex concepts, but this experience helped me practice preserving that complexity while still building clearer entry points into the material.
+              A major part of my contribution was producing documentation that translated review findings into usable design resources for myself, collaborators, and future course development work.
             </p>
-          </div>
+            <ul>
+              <li>I developed or refined artifacts such as the integrated gap analysis, commercialization timeline, regulatory additions, and learner-facing templates.</li>
+              <li>These materials made design decisions more visible and gave the broader project a clearer instructional record.</li>
+              <li>This competency became especially visible when I moved from course critique into reusable templates and structured revision language.</li>
+            </ul>
+            <div class="artifact-links">
+              <a class="artifact-link" href="assets/docs/commercialization-timeline.pdf" target="_blank">Evidence: Commercialization Timeline</a>
+              <a class="artifact-link" href="assets/docs/learner-facing-templates.pdf" target="_blank">Evidence: Learner-Facing Templates</a>
+            </div>
+          </article>
 
-          <div class="growth-card">
-            <span class="label">Growth area 04</span>
-            <h3>Using consistency as a design strategy</h3>
+          <article class="competency-card">
+            <span class="competency-subtitle">Core Competency 3</span>
+            <h3>Fostering Workplace Skills and Professional Relationships</h3>
             <p>
-              Across the revised pages, I worked toward a repeatable pattern: explain why the topic matters, focus attention, support lightweight application, and connect the page to a deliverable or next step. Developing and applying that pattern helped me think more like a learning designer working across a system rather than editing pages in isolation.
+              This project required me to work within an existing instructional context rather than designing from scratch. That meant responding to team priorities, respecting the course structure already in place, and shaping revisions that were realistic for collaborators to implement and review.
             </p>
-          </div>
+            <ul>
+              <li>I framed my work as revisions and extensions that could strengthen the current course without disrupting its recognizable weekly organization.</li>
+              <li>The supporting documents reflect communication with project stakeholders through clear, shareable design reasoning.</li>
+              <li>This helped me see LXD work as collaborative and workplace-situated, not only creative or individual.</li>
+            </ul>
+            <div class="artifact-links">
+              <a class="artifact-link" href="assets/docs/course-source-material.docx" target="_blank">Evidence: Source Course Material</a>
+              <a class="artifact-link" href="assets/docs/regulatory-affairs-additions.pdf" target="_blank">Evidence: Revision Proposal Document</a>
+            </div>
+          </article>
+
+          <article class="competency-card">
+            <span class="competency-subtitle">Core Competency 4</span>
+            <h3>Integrating Inclusive Design Principles and Practices</h3>
+            <p>
+              My revisions aimed to reduce ambiguity, lower unnecessary cognitive load, and create more supportive entry points for learners who were still developing confidence with biomedical innovation and commercialization concepts.
+            </p>
+            <ul>
+              <li>I repeatedly added guiding questions, “how to use this page” language, and clearer explanations of why a topic mattered at that point in the course.</li>
+              <li>I paid attention to how beginners might encounter dense professional content and tried to make each page more navigable and more usable.</li>
+              <li>This shaped my understanding of inclusive design as clarity, transparency, and supported participation, not only accessibility checklists.</li>
+            </ul>
+            <div class="artifact-links">
+              <a class="artifact-link" href="assets/images/device-concept-brief.png" target="_blank">Evidence: Device Concept Brief Page</a>
+              <a class="artifact-link" href="assets/images/week3-regulatory-considerations.png" target="_blank">Evidence: Week 3 Regulatory Page</a>
+            </div>
+          </article>
+
+          <article class="competency-card">
+            <span class="competency-subtitle">Core Competency 5</span>
+            <h3>Using Knowledge of Technology Affordances and Constraints</h3>
+            <p>
+              Because this work happened directly in Canvas, I had to think carefully about what the platform could and could not support. My revisions were shaped by the affordances of Canvas pages, modules, and submission points rather than by an idealized design environment.
+            </p>
+            <ul>
+              <li>I used page openings, sequencing, and submission prompts to make the most of the LMS structure already available.</li>
+              <li>I treated Canvas as a design medium, not just a storage space for content.</li>
+              <li>This strengthened my ability to design within constraints while still improving learner experience and coherence.</li>
+            </ul>
+            <div class="artifact-links">
+              <a class="artifact-link" href="assets/images/week1-regulatory-starting-point.png" target="_blank">Evidence: Week 1 Canvas Revision</a>
+              <a class="artifact-link" href="assets/images/week4-business-case.png" target="_blank">Evidence: Week 4 Canvas Revision</a>
+            </div>
+          </article>
+
+          <article class="competency-card">
+            <span class="competency-subtitle">Core Competency 6</span>
+            <h3>Using Research and Evaluation Skills</h3>
+            <p>
+              This portfolio grew out of a review-and-revision process grounded in evidence. I analyzed the existing course, compared it against the demands of biomedical innovation learning, and used that analysis to justify changes rather than relying on preference alone.
+            </p>
+            <ul>
+              <li>The regulatory additions and gap analysis documents show how I combined source course review with external research and evaluative reasoning.</li>
+              <li>I used course materials, milestone logic, and domain-specific considerations to identify where more learner support was needed.</li>
+              <li>This work deepened my view of evaluation as an ongoing design resource, not just a final measurement step.</li>
+            </ul>
+            <div class="artifact-links">
+              <a class="artifact-link" href="assets/docs/regulatory-affairs-additions.pdf" target="_blank">Evidence: Regulatory Affairs Additions</a>
+              <a class="artifact-link" href="assets/docs/gaps.pdf" target="_blank">Evidence: GAPS Document</a>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="section-tight">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">What I can now do more confidently</span>
-          <h2>Skills this project made visible</h2>
-        </div>
-
-        <div class="journey-grid">
-          <div class="journey-card">
-            <strong>Analyze an existing course with an LXD lens</strong>
-            <p>I can now identify where a course is strong, where learners may still get stuck, and where the most useful revisions are likely to have the biggest effect.</p>
-          </div>
-          <div class="journey-card">
-            <strong>Write more learner-facing Canvas instruction</strong>
-            <p>I became more intentional about how page introductions, guiding questions, and assignment language can shape learner attention and make expectations more actionable.</p>
-          </div>
-          <div class="journey-card">
-            <strong>Connect page design to broader course coherence</strong>
-            <p>This project helped me see that consistency in weekly page logic is itself a form of instructional support, especially in project-based and professional learning contexts.</p>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <section class="section" id="documents">
       <div class="container">
@@ -980,7 +1124,7 @@
           <span class="eyebrow">Supporting Documents</span>
           <h2>Project files and design materials</h2>
           <p class="lead">
-            These files document the broader analysis and design work that informed the Canvas revisions, including gap analysis, learning goals, learner-facing templates, commercialization timeline work, and supporting course materials.
+            These files document the broader analysis and design work that informed the Canvas revisions, including gap analysis, learning goals, learner-facing templates, commercialization timeline work, and supporting course materials. Several of these documents are also linked throughout the case study above so that the portfolio can function as a professional resource as well as a final course submission.
           </p>
         </div>
 
