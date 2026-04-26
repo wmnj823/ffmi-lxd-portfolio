@@ -430,6 +430,45 @@
     .extension-card h3{color:var(--blue-900)}
 
 
+    .artifact-detail-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:12px;
+      margin-top:2px;
+    }
+    .artifact-detail{
+      padding:16px;
+      border-radius:18px;
+      background:rgba(247,251,255,.92);
+      border:1px solid var(--line);
+      display:grid; gap:8px;
+    }
+    .artifact-detail span{
+      font-size:.75rem;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+      font-weight:900;
+      color:var(--blue-800);
+    }
+    .artifact-detail p{
+      font-size:.93rem;
+      color:var(--muted);
+    }
+
+    .portfolio-note{
+      padding:22px 24px;
+      border-radius:24px;
+      background:linear-gradient(180deg, rgba(255,255,255,.94) 0%, rgba(247,251,255,.96) 100%);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow-md);
+      display:grid; gap:10px;
+      margin-top:18px;
+    }
+    .portfolio-note strong{
+      color:var(--blue-900);
+      font-size:1.02rem;
+    }
+
     .artifact-links{
       display:flex; flex-wrap:wrap; gap:10px;
       margin-top:2px;
@@ -541,7 +580,7 @@
     }
 
     @media (max-width: 900px){
-      .feature, .feature.reverse, .grid-2, .grid-3, .doc-grid{grid-template-columns:1fr}
+      .feature, .feature.reverse, .grid-2, .grid-3, .doc-grid, .artifact-detail-grid{grid-template-columns:1fr}
       .feature.reverse .feature-text,
       .feature.reverse .feature-media{order:initial}
       .hero-stats{grid-template-columns:1fr}
@@ -655,6 +694,11 @@
           </p>
         </div>
 
+        <div class="portfolio-note">
+          <strong>Portfolio purpose</strong>
+          <p>This website was designed to serve two functions: first, as a final seminar portfolio that supports discussion with peers and instructors, and second, as a professional web-based resource I can use when pursuing future LXD opportunities. The primary artifacts below include direct Canvas revisions, supporting design documents developed over the academic year, and explicit explanations of my role, competency alignment, and professional growth.</p>
+        </div>
+
         <div class="grid-2">
           <div class="card glass">
             <h3>Original course strengths</h3>
@@ -720,8 +764,8 @@
           <span class="eyebrow">Implemented Canvas Revisions</span>
           <h2>Selected pages I revised directly in Canvas</h2>
           <p class="lead">
-            The sections below follow the order of the course itself. Together, they show how I revised page framing, resource use, learner prompts,
-            and assignment alignment while keeping the course’s existing structure recognizable.
+            The five sections below are my primary chosen artifacts for this portfolio. They follow the order of the course itself and show how I revised page framing, resource use, learner prompts,
+            and assignment alignment while keeping the course’s existing structure recognizable. For each artifact, I identify my role, the LXD Core Competencies most visible in the work, and what I learned through developing it.
           </p>
         </div>
 
@@ -742,6 +786,20 @@
                 <li>This addition helps students connect unmet need, intended use, target user, use setting, and early value proposition before moving into later work on regulation, IP, and commercialization.</li>
                 <li>The page functions as a bridge from broad customer discovery language into more focused medical-device framing.</li>
               </ul>
+              <div class="artifact-detail-grid">
+                <div class="artifact-detail">
+                  <span>My role</span>
+                  <p>I identified the missing bridge between customer discovery and device framing, then drafted the new page structure, prompts, and learner-facing language for this addition.</p>
+                </div>
+                <div class="artifact-detail">
+                  <span>Competency alignment</span>
+                  <p>Applying Learning Theories and Design Frameworks; Creating Design Resources and Project Documentation; Using Research and Evaluation Skills.</p>
+                </div>
+                <div class="artifact-detail">
+                  <span>What I learned</span>
+                  <p>I learned how valuable a bridging artifact can be in project-based instruction. Learners often need help translating broad discovery language into a more actionable design concept before moving on.</p>
+                </div>
+              </div>
               <div class="artifact-links">
                 <a class="artifact-link" href="assets/docs/medical-device-learning-templates.pdf" target="_blank">Related artifact: learning templates</a>
                 <a class="artifact-link" href="assets/docs/course-source-material.docx" target="_blank">Source material</a>
@@ -774,6 +832,20 @@
                 <li>I added a lightweight class overview and framing language so learners can begin thinking in terms of lower, moderate, or higher risk.</li>
                 <li>I also designed related Week 1 activities such as <strong>Who Pays vs. Who Benefits?</strong> and <strong>Choose Your Route</strong> to help teams distinguish users, beneficiaries, decision-makers, and payers.</li>
               </ul>
+              <div class="artifact-detail-grid">
+                <div class="artifact-detail">
+                  <span>My role</span>
+                  <p>I revised the page framing, wrote new guidance for early regulatory reasoning, and connected the page to lightweight activities that supported opportunity sizing and monetization decisions.</p>
+                </div>
+                <div class="artifact-detail">
+                  <span>Competency alignment</span>
+                  <p>Using Knowledge of Technology Affordances and Constraints; Applying Learning Theories and Design Frameworks; Creating Design Resources and Project Documentation.</p>
+                </div>
+                <div class="artifact-detail">
+                  <span>What I learned</span>
+                  <p>I learned that early framing matters as much as content coverage. When students receive orientation before complex resources, they can reason more confidently and use the page more strategically.</p>
+                </div>
+              </div>
               <div class="artifact-links">
                 <a class="artifact-link" href="assets/docs/regulatory-affairs-additions.pdf" target="_blank">Related artifact: regulatory additions</a>
                 <a class="artifact-link" href="assets/docs/commercial-tasks.pdf" target="_blank">Related artifact: commercial tasks</a>
@@ -805,6 +877,20 @@
                 <li>This turns Week 1 into a more coherent instructional sequence rather than a page plus an only loosely related submission point.</li>
                 <li>The revision supports a stronger transition from learning content to visible student reasoning.</li>
               </ul>
+              <div class="artifact-detail-grid">
+                <div class="artifact-detail">
+                  <span>My role</span>
+                  <p>I rewrote the assignment-facing instructions so that the submission page reflected the revised Week 1 goals and asked students to make their reasoning visible in a concise deliverable.</p>
+                </div>
+                <div class="artifact-detail">
+                  <span>Competency alignment</span>
+                  <p>Creating Design Resources and Project Documentation; Integrating Inclusive Design Principles and Practices; Using Knowledge of Technology Affordances and Constraints.</p>
+                </div>
+                <div class="artifact-detail">
+                  <span>What I learned</span>
+                  <p>I learned that assignment pages are also learning spaces. Clear submission guidance can reduce ambiguity and strengthen the connection between instruction and learner performance.</p>
+                </div>
+              </div>
               <div class="artifact-links">
                 <a class="artifact-link" href="assets/docs/commercial-tasks.pdf" target="_blank">Related artifact: Week 1 tasks</a>
                 <a class="artifact-link" href="assets/docs/course-source-material.docx" target="_blank">Source material</a>
@@ -837,6 +923,20 @@
                 <li>I created a <strong>How to use this page</strong> section so students know what to review first, what to download, and how to use the track-specific materials.</li>
                 <li>I clarified that the goal is not immediate certainty, but early regulatory questioning about evidence, documentation, and pathway uncertainty.</li>
               </ul>
+              <div class="artifact-detail-grid">
+                <div class="artifact-detail">
+                  <span>My role</span>
+                  <p>I reorganized the page, added a "How to use this page" section, clarified the role of track-specific resources, and reframed the page as guided regulatory inquiry rather than a static repository.</p>
+                </div>
+                <div class="artifact-detail">
+                  <span>Competency alignment</span>
+                  <p>Integrating Inclusive Design Principles and Practices; Using Research and Evaluation Skills; Using Knowledge of Technology Affordances and Constraints.</p>
+                </div>
+                <div class="artifact-detail">
+                  <span>What I learned</span>
+                  <p>I learned that inclusive design often happens through signaling and orientation. Even when content stays the same, learners benefit from stronger entry points and clearer resource use.</p>
+                </div>
+              </div>
               <div class="artifact-links">
                 <a class="artifact-link" href="assets/docs/regulatory-affairs-additions.pdf" target="_blank">Related artifact: regulatory additions</a>
                 <a class="artifact-link" href="assets/docs/gaps.pdf" target="_blank">Related artifact: gaps</a>
@@ -870,6 +970,20 @@
                 <li>I added guiding questions about what the team still needs to learn, which stakeholder perspectives are missing, and what evidence could strengthen the pitch.</li>
                 <li>I reframed office hours as a meaningful design and feedback opportunity instead of a simple reminder.</li>
               </ul>
+              <div class="artifact-detail-grid">
+                <div class="artifact-detail">
+                  <span>My role</span>
+                  <p>I rewrote the weekly page as a learning guide, added focus questions, and strengthened the connection between customer discovery, office hours, and final business-case preparation.</p>
+                </div>
+                <div class="artifact-detail">
+                  <span>Competency alignment</span>
+                  <p>Applying Learning Theories and Design Frameworks; Fostering Workplace Skills and Professional Relationships; Integrating Inclusive Design Principles and Practices.</p>
+                </div>
+                <div class="artifact-detail">
+                  <span>What I learned</span>
+                  <p>I learned how much weekly framing can influence learner motivation and follow-through. A page that explains purpose and next steps can help students see support opportunities more intentionally.</p>
+                </div>
+              </div>
               <div class="artifact-links">
                 <a class="artifact-link" href="assets/docs/course-source-material.docx" target="_blank">Source material</a>
                 <a class="artifact-link" href="assets/docs/commercial-tasks.pdf" target="_blank">Related artifact: business-case supports</a>
@@ -1076,6 +1190,36 @@
       </div>
     </section>
 
+    <section class="section-tight">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Artifact Set Across the Academic Year</span>
+          <h2>How the portfolio combines implemented pages with earlier design work</h2>
+          <p class="lead">
+            The Canvas revisions shown above are the most visible final artifacts, but they were shaped by earlier analysis and documentation developed across the academic year. Together, these files show a fuller arc of professional growth: reviewing an existing course, identifying instructional gaps, documenting design opportunities, drafting learner-facing resources, and then implementing stronger page design directly in Canvas.
+          </p>
+        </div>
+        <div class="grid-2">
+          <div class="card glass">
+            <h3>Role across the portfolio</h3>
+            <ul>
+              <li>I served as a course reviewer, redesign writer, and learner-support designer across these materials.</li>
+              <li>My contributions included analysis, page rewriting, prompt creation, activity design, and alignment between course pages and learner deliverables.</li>
+              <li>This portfolio format helps present those artifacts as a professional web resource rather than a disconnected set of class files.</li>
+            </ul>
+          </div>
+          <div class="card glass">
+            <h3>Professional growth demonstrated here</h3>
+            <ul>
+              <li>Moving from diagnosis of course problems to concrete design decisions</li>
+              <li>Connecting learner needs to platform-specific page structure in Canvas</li>
+              <li>Using documentation and artifacts as evidence of design reasoning and collaboration</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="section" id="documents">
       <div class="container">
         <div class="section-head">
@@ -1124,7 +1268,7 @@
             Across all of these changes, my main design goal was consistency and usability. I wanted the course pages to follow a clearer pattern:
             first explain why the topic matters, then focus students’ attention with a few guiding questions, then give them a lightweight way to apply the idea to their own project,
             and finally connect that work to a concrete deliverable or next step. Rather than treating pages mainly as places to hold information,
-            I tried to make them work more like learning supports. This portfolio represents that shift clearly: from reviewing course materials to actively shaping a more guided, coherent, and actionable learner experience in Canvas.
+            I tried to make them work more like learning supports. This portfolio represents that shift clearly: from reviewing course materials to actively shaping a more guided, coherent, and actionable learner experience in Canvas. Preparing the portfolio in this format also pushed me to articulate my role in each artifact, connect the work to the LXD Core Competencies, and reflect more intentionally on how these experiences are shaping my current understanding of LXD practice.
           </p>
         </div>
       </div>
