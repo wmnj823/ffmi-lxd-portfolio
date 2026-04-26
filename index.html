@@ -429,98 +429,64 @@
     }
     .extension-card h3{color:var(--blue-900)}
 
+
     .artifact-links{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
+      display:flex; flex-wrap:wrap; gap:10px;
       margin-top:2px;
     }
     .artifact-link{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding:10px 14px;
+      padding:8px 12px;
       border-radius:999px;
-      background:rgba(247,251,255,.96);
+      background:#fff;
       border:1px solid var(--line);
-      color:var(--blue-900);
-      font-size:.84rem;
+      color:var(--blue-800);
+      font-size:.82rem;
       font-weight:800;
-      letter-spacing:.01em;
-      transition:transform .18s ease, box-shadow .18s ease;
+      letter-spacing:.02em;
       box-shadow:var(--shadow-md);
+      transition:transform .18s ease, box-shadow .18s ease;
     }
     .artifact-link:hover{
       transform:translateY(-1px);
       box-shadow:var(--shadow-lg);
     }
-    .artifact-link::before{
-      content:"↗";
-      font-size:.9rem;
-      color:var(--blue-700);
-      line-height:1;
-    }
 
     .competency-grid{
       display:grid;
       grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:22px;
-      margin-top:12px;
+      gap:18px;
+      margin-top:8px;
     }
     .competency-card{
-      padding:28px;
-      border-radius:28px;
+      padding:26px;
+      border-radius:26px;
       background:rgba(255,255,255,.92);
       border:1px solid var(--line);
       box-shadow:var(--shadow-md);
-      display:grid;
-      gap:14px;
+      display:grid; gap:14px;
     }
-    .competency-card h3{
-      color:var(--blue-900);
-      font-size:1.22rem;
-      line-height:1.25;
-    }
-    .competency-card p{
-      font-size:.98rem;
-    }
+    .competency-card h3{color:var(--blue-900)}
+    .competency-card p{font-size:.97rem}
     .competency-card ul{
-      list-style:none;
-      padding:0;
-      margin:0;
-      display:grid;
-      gap:10px;
+      list-style:none; padding:0; margin:0;
+      display:grid; gap:8px;
     }
     .competency-card li{
-      position:relative;
-      padding-left:18px;
-      color:var(--muted);
-      font-size:.97rem;
+      position:relative; padding-left:18px; color:var(--muted);
     }
     .competency-card li::before{
-      content:"•";
-      position:absolute;
-      left:0;
-      top:0;
-      color:var(--gold);
-      font-weight:900;
+      content:"";
+      position:absolute; left:0; top:.58em;
+      width:8px; height:8px; border-radius:50%;
+      background:var(--gold);
+      transform:translateY(-50%);
     }
-    .competency-subtitle{
+    .competency-subhead{
       font-size:.78rem;
-      text-transform:uppercase;
+      font-weight:900;
       letter-spacing:.06em;
-      font-weight:800;
-      color:var(--blue-700);
-    }
-    .competency-callout{
-      padding:24px 26px;
-      border-radius:24px;
-      background:linear-gradient(180deg, rgba(255,255,255,.94) 0%, rgba(238,245,251,.94) 100%);
-      border:1px solid var(--line);
-      box-shadow:var(--shadow-md);
-      display:grid;
-      gap:12px;
-      margin-top:10px;
+      text-transform:uppercase;
+      color:var(--blue-800);
     }
 
     .doc-grid{
@@ -575,7 +541,7 @@
     }
 
     @media (max-width: 900px){
-      .feature, .feature.reverse, .grid-2, .grid-3, .doc-grid, .competency-grid{grid-template-columns:1fr}
+      .feature, .feature.reverse, .grid-2, .grid-3, .doc-grid{grid-template-columns:1fr}
       .feature.reverse .feature-text,
       .feature.reverse .feature-media{order:initial}
       .hero-stats{grid-template-columns:1fr}
@@ -601,7 +567,7 @@
         <a href="#overview">Overview</a>
         <a href="#revisions">Revisions</a>
         <a href="#extensions">Extensions</a>
-        <a href="#competencies">Core Competencies</a>
+        <a href="#competencies">Competencies</a>
         <a href="#documents">Documents</a>
         <a href="#about">About</a>
       </div>
@@ -777,8 +743,8 @@
                 <li>The page functions as a bridge from broad customer discovery language into more focused medical-device framing.</li>
               </ul>
               <div class="artifact-links">
-                <a class="artifact-link" href="assets/docs/learner-facing-templates.pdf" target="_blank">Related artifact: Learner-Facing Templates</a>
-                <a class="artifact-link" href="assets/docs/integrated-gap-analysis-learning-goals.pdf" target="_blank">Related artifact: Gap Analysis and Learning Goals</a>
+                <a class="artifact-link" href="assets/docs/medical-device-learning-templates.pdf" target="_blank">Related artifact: learning templates</a>
+                <a class="artifact-link" href="assets/docs/course-source-material.docx" target="_blank">Source material</a>
               </div>
             </div>
             <div class="feature-media">
@@ -809,8 +775,8 @@
                 <li>I also designed related Week 1 activities such as <strong>Who Pays vs. Who Benefits?</strong> and <strong>Choose Your Route</strong> to help teams distinguish users, beneficiaries, decision-makers, and payers.</li>
               </ul>
               <div class="artifact-links">
-                <a class="artifact-link" href="assets/docs/regulatory-affairs-additions.pdf" target="_blank">Related artifact: Regulatory Affairs Additions</a>
-                <a class="artifact-link" href="assets/docs/commercial-tasks.pdf" target="_blank">Related artifact: Commercial Tasks</a>
+                <a class="artifact-link" href="assets/docs/regulatory-affairs-additions.pdf" target="_blank">Related artifact: regulatory additions</a>
+                <a class="artifact-link" href="assets/docs/commercial-tasks.pdf" target="_blank">Related artifact: commercial tasks</a>
               </div>
             </div>
             <div class="feature-media">
@@ -840,8 +806,8 @@
                 <li>The revision supports a stronger transition from learning content to visible student reasoning.</li>
               </ul>
               <div class="artifact-links">
-                <a class="artifact-link" href="assets/docs/commercialization-timeline.pdf" target="_blank">Related artifact: Commercialization Timeline</a>
-                <a class="artifact-link" href="assets/docs/course-source-material.docx" target="_blank">Related artifact: Source Course Material</a>
+                <a class="artifact-link" href="assets/docs/commercial-tasks.pdf" target="_blank">Related artifact: Week 1 tasks</a>
+                <a class="artifact-link" href="assets/docs/course-source-material.docx" target="_blank">Source material</a>
               </div>
             </div>
             <div class="feature-media">
@@ -872,8 +838,8 @@
                 <li>I clarified that the goal is not immediate certainty, but early regulatory questioning about evidence, documentation, and pathway uncertainty.</li>
               </ul>
               <div class="artifact-links">
-                <a class="artifact-link" href="assets/docs/regulatory-affairs-additions.pdf" target="_blank">Related artifact: Regulatory Affairs Additions</a>
-                <a class="artifact-link" href="assets/docs/course-source-material.docx" target="_blank">Related artifact: Source Course Material</a>
+                <a class="artifact-link" href="assets/docs/regulatory-affairs-additions.pdf" target="_blank">Related artifact: regulatory additions</a>
+                <a class="artifact-link" href="assets/docs/gaps.pdf" target="_blank">Related artifact: gaps</a>
               </div>
             </div>
             <div class="feature-media">
@@ -905,8 +871,8 @@
                 <li>I reframed office hours as a meaningful design and feedback opportunity instead of a simple reminder.</li>
               </ul>
               <div class="artifact-links">
-                <a class="artifact-link" href="assets/docs/commercial-tasks.pdf" target="_blank">Related artifact: Commercial Tasks</a>
-                <a class="artifact-link" href="assets/docs/course-source-material.docx" target="_blank">Related artifact: Source Course Material</a>
+                <a class="artifact-link" href="assets/docs/course-source-material.docx" target="_blank">Source material</a>
+                <a class="artifact-link" href="assets/docs/commercial-tasks.pdf" target="_blank">Related artifact: business-case supports</a>
               </div>
             </div>
             <div class="feature-media">
@@ -941,7 +907,7 @@
               I designed activity ideas such as <strong>Better Than What?</strong> and <strong>Search Like a Detective</strong> to give students a lighter, more concrete entry point into competitive analysis and prior art thinking before the formal assignment.
             </p>
             <div class="artifact-links">
-              <a class="artifact-link" href="assets/docs/commercial-tasks.pdf" target="_blank">View Commercial Tasks</a>
+              <a class="artifact-link" href="assets/docs/commercial-tasks.pdf" target="_blank">Related artifact: commercial tasks</a>
             </div>
           </div>
           <div class="extension-card">
@@ -951,7 +917,7 @@
               I revised the Week 3 progress presentation instructions so the page communicates not only what slides students should include, but also what kind of performance the checkpoint presentation is meant to support.
             </p>
             <div class="artifact-links">
-              <a class="artifact-link" href="assets/docs/course-source-material.docx" target="_blank">View Source Course Material</a>
+              <a class="artifact-link" href="assets/docs/course-source-material.docx" target="_blank">Source material</a>
             </div>
           </div>
           <div class="extension-card">
@@ -961,7 +927,7 @@
               For the Critical Milestones page, I added interpretation prompts and reflection questions so students can connect milestone videos back to their own innovation rather than simply selecting and watching a track-specific resource.
             </p>
             <div class="artifact-links">
-              <a class="artifact-link" href="assets/docs/commercialization-timeline.pdf" target="_blank">View Commercialization Timeline</a>
+              <a class="artifact-link" href="assets/docs/commercialization-timeline.pdf" target="_blank">Related artifact: commercialization timeline</a>
             </div>
           </div>
         </div>
@@ -996,127 +962,119 @@
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">LXD Core Competencies</span>
-          <h2>Explicit connections to the six LXD Core Competencies</h2>
+          <h2>How this work connects explicitly to the six LXD Core Competencies</h2>
           <p class="lead">
-            This portfolio is designed to function as a professional case study as well as a course submission, so this section makes the competency links explicit.
-            Across the artifacts in this project, I demonstrated growth in all six of our course’s LXD Core Competencies: applying learning theories and design frameworks; creating design resources and project documentation; fostering workplace skills and professional relationships; integrating inclusive design principles and practices; using knowledge of technology affordances and constraints; and using research and evaluation skills.
-          </p>
-        </div>
-
-        <div class="competency-callout">
-          <strong style="color:var(--blue-900); font-size:1.08rem;">How this section works</strong>
-          <p>
-            Each card below names one official LXD Core Competency, explains how the work in this portfolio demonstrates that competency, and points to specific artifacts as evidence.
-            Together, these connections show not only what I produced during the residency, but also how the work shaped my current understanding of learning experience design as a professional practice.
+            Throughout this project, I was not only revising pages in Canvas. I was developing the kinds of professional practices our program frames as core to LXD work. The six competencies below make those connections explicit and show how these tasks shaped my current thinking about learning experience design.
           </p>
         </div>
 
         <div class="competency-grid">
           <article class="competency-card">
-            <span class="competency-subtitle">Core Competency 1</span>
-            <h3>Applying Learning Theories and Design Frameworks</h3>
+            <span class="competency-subhead">1. Applying Learning Theories and Design Frameworks</span>
+            <h3>Using page structure as an instructional design strategy</h3>
             <p>
-              My revisions consistently used an alignment mindset. I focused on making each page do more instructional work by clarifying why the topic mattered, what learners should pay attention to, and how the page connected to a concrete next step or deliverable.
+              I approached the course revisions through a consistent learning design pattern: explain why the topic matters, focus attention with guiding questions, support lightweight application, and then connect that work to a deliverable or next step. This reflects my growing ability to use design frameworks intentionally rather than revising pages only at the level of wording.
             </p>
             <ul>
-              <li>The revised Week 1 submission page made the relationship between weekly content and student performance more explicit.</li>
-              <li>The course-wide design pattern shows how I was thinking in terms of instructional sequence rather than page-by-page editing alone.</li>
-              <li>This work strengthened my ability to use alignment and scaffolding as design frameworks for course revision.</li>
+              <li>I treated Canvas pages as learning supports, not only as content containers.</li>
+              <li>I used sequencing and scaffolding to help students move from information toward action.</li>
+              <li>This shaped my current view that strong LXD work often depends on designing the progression of learner thinking.</li>
             </ul>
             <div class="artifact-links">
-              <a class="artifact-link" href="assets/images/week1-submission-page.png" target="_blank">Evidence: Week 1 Submission Revision</a>
-              <a class="artifact-link" href="assets/docs/integrated-gap-analysis-learning-goals.pdf" target="_blank">Evidence: Gap Analysis and Learning Goals</a>
+              <a class="artifact-link" href="assets/images/week4-business-case.png" target="_blank">Canvas evidence</a>
+              <a class="artifact-link" href="assets/docs/course-source-material.docx" target="_blank">Source material</a>
             </div>
           </article>
 
           <article class="competency-card">
-            <span class="competency-subtitle">Core Competency 2</span>
-            <h3>Creating Design Resources and Project Documentation</h3>
+            <span class="competency-subhead">2. Creating Design Resources and Project Documentation</span>
+            <h3>Producing reusable design artifacts, not just page edits</h3>
             <p>
-              A major part of my contribution was producing documentation that translated review findings into usable design resources for myself, collaborators, and future course development work.
+              The project included more than revised course pages. I also developed supporting artifacts such as gap analyses, learning goals, timelines, task ideas, and learner-facing templates. Together, these show my ability to document design decisions and create resources that can support future iteration and collaboration.
             </p>
             <ul>
-              <li>I developed or refined artifacts such as the integrated gap analysis, commercialization timeline, regulatory additions, and learner-facing templates.</li>
-              <li>These materials made design decisions more visible and gave the broader project a clearer instructional record.</li>
-              <li>This competency became especially visible when I moved from course critique into reusable templates and structured revision language.</li>
+              <li>I translated observations into organized documentation that others could use.</li>
+              <li>I created artifacts that connected analysis, design rationale, and learner-facing outputs.</li>
+              <li>This shaped my current thinking by showing that documentation is part of the design work itself, not separate from it.</li>
             </ul>
             <div class="artifact-links">
-              <a class="artifact-link" href="assets/docs/commercialization-timeline.pdf" target="_blank">Evidence: Commercialization Timeline</a>
-              <a class="artifact-link" href="assets/docs/learner-facing-templates.pdf" target="_blank">Evidence: Learner-Facing Templates</a>
+              <a class="artifact-link" href="assets/docs/integrated-gap-analysis-learning-goals.pdf" target="_blank">Gap analysis</a>
+              <a class="artifact-link" href="assets/docs/medical-device-learning-templates.pdf" target="_blank">Learning templates</a>
+              <a class="artifact-link" href="assets/docs/commercialization-timeline.pdf" target="_blank">Timeline</a>
             </div>
           </article>
 
           <article class="competency-card">
-            <span class="competency-subtitle">Core Competency 3</span>
-            <h3>Fostering Workplace Skills and Professional Relationships</h3>
+            <span class="competency-subhead">3. Fostering Workplace Skills and Professional Relationships</span>
+            <h3>Working within an existing course, team context, and professional constraint set</h3>
             <p>
-              This project required me to work within an existing instructional context rather than designing from scratch. That meant responding to team priorities, respecting the course structure already in place, and shaping revisions that were realistic for collaborators to implement and review.
+              This portfolio reflects workplace skills because the work was shaped by an authentic instructional context. I was revising a real course with an existing module structure, existing materials, and practical constraints. That required me to make decisions that were feasible, respectful of the current design, and useful to collaborators.
             </p>
             <ul>
-              <li>I framed my work as revisions and extensions that could strengthen the current course without disrupting its recognizable weekly organization.</li>
-              <li>The supporting documents reflect communication with project stakeholders through clear, shareable design reasoning.</li>
-              <li>This helped me see LXD work as collaborative and workplace-situated, not only creative or individual.</li>
+              <li>I worked within a real team context rather than redesigning in abstraction.</li>
+              <li>I framed suggestions in ways that supported implementation and collaboration.</li>
+              <li>This shaped my thinking by helping me see LXD as relational and context-sensitive work.</li>
             </ul>
             <div class="artifact-links">
-              <a class="artifact-link" href="assets/docs/course-source-material.docx" target="_blank">Evidence: Source Course Material</a>
-              <a class="artifact-link" href="assets/docs/regulatory-affairs-additions.pdf" target="_blank">Evidence: Revision Proposal Document</a>
+              <a class="artifact-link" href="assets/docs/course-source-material.docx" target="_blank">Course source material</a>
+              <a class="artifact-link" href="assets/images/week3-regulatory-considerations.png" target="_blank">Canvas evidence</a>
             </div>
           </article>
 
           <article class="competency-card">
-            <span class="competency-subtitle">Core Competency 4</span>
-            <h3>Integrating Inclusive Design Principles and Practices</h3>
+            <span class="competency-subhead">4. Integrating Inclusive Design Principles and Practices</span>
+            <h3>Making complex content clearer, more navigable, and more usable</h3>
             <p>
-              My revisions aimed to reduce ambiguity, lower unnecessary cognitive load, and create more supportive entry points for learners who were still developing confidence with biomedical innovation and commercialization concepts.
+              Many of my revisions were inclusive design moves. I clarified page purpose, added “how to use this page” guidance, reduced ambiguity, and made expectations more visible. These changes support learners who benefit from clearer orientation, better signaling, and stronger connections between content and action.
             </p>
             <ul>
-              <li>I repeatedly added guiding questions, “how to use this page” language, and clearer explanations of why a topic mattered at that point in the course.</li>
-              <li>I paid attention to how beginners might encounter dense professional content and tried to make each page more navigable and more usable.</li>
-              <li>This shaped my understanding of inclusive design as clarity, transparency, and supported participation, not only accessibility checklists.</li>
+              <li>I added entry-point guidance so students could better navigate resources and tasks.</li>
+              <li>I emphasized clarity, consistency, and lightweight application rather than cognitive overload.</li>
+              <li>This shaped my view that inclusive design is often built through structure, language, and usability decisions.</li>
             </ul>
             <div class="artifact-links">
-              <a class="artifact-link" href="assets/images/device-concept-brief.png" target="_blank">Evidence: Device Concept Brief Page</a>
-              <a class="artifact-link" href="assets/images/week3-regulatory-considerations.png" target="_blank">Evidence: Week 3 Regulatory Page</a>
+              <a class="artifact-link" href="assets/images/week3-regulatory-considerations.png" target="_blank">Canvas evidence</a>
+              <a class="artifact-link" href="assets/images/week1-submission-page.png" target="_blank">Submission evidence</a>
             </div>
           </article>
 
           <article class="competency-card">
-            <span class="competency-subtitle">Core Competency 5</span>
-            <h3>Using Knowledge of Technology Affordances and Constraints</h3>
+            <span class="competency-subhead">5. Using Knowledge of Technology Affordances and Constraints</span>
+            <h3>Designing within the affordances of Canvas as a teaching platform</h3>
             <p>
-              Because this work happened directly in Canvas, I had to think carefully about what the platform could and could not support. My revisions were shaped by the affordances of Canvas pages, modules, and submission points rather than by an idealized design environment.
+              This work required me to think carefully about what Canvas pages can and cannot do well. Instead of treating the platform as neutral, I used its page-based structure, sequencing, and visibility to guide students more intentionally while still respecting the course’s existing weekly organization.
             </p>
             <ul>
-              <li>I used page openings, sequencing, and submission prompts to make the most of the LMS structure already available.</li>
-              <li>I treated Canvas as a design medium, not just a storage space for content.</li>
-              <li>This strengthened my ability to design within constraints while still improving learner experience and coherence.</li>
+              <li>I designed revisions that fit the existing Canvas workflow rather than requiring a full rebuild.</li>
+              <li>I used the platform’s constraints to push for simpler, clearer, more actionable page design.</li>
+              <li>This shaped my current thinking by reminding me that good LXD depends on understanding the medium as well as the message.</li>
             </ul>
             <div class="artifact-links">
-              <a class="artifact-link" href="assets/images/week1-regulatory-starting-point.png" target="_blank">Evidence: Week 1 Canvas Revision</a>
-              <a class="artifact-link" href="assets/images/week4-business-case.png" target="_blank">Evidence: Week 4 Canvas Revision</a>
+              <a class="artifact-link" href="assets/images/week1-regulatory-starting-point.png" target="_blank">Canvas evidence</a>
+              <a class="artifact-link" href="assets/images/week4-business-case.png" target="_blank">Canvas evidence</a>
             </div>
           </article>
 
           <article class="competency-card">
-            <span class="competency-subtitle">Core Competency 6</span>
-            <h3>Using Research and Evaluation Skills</h3>
+            <span class="competency-subhead">6. Using Research and Evaluation Skills</span>
+            <h3>Grounding revisions in analysis rather than preference alone</h3>
             <p>
-              This portfolio grew out of a review-and-revision process grounded in evidence. I analyzed the existing course, compared it against the demands of biomedical innovation learning, and used that analysis to justify changes rather than relying on preference alone.
+              My revisions were informed by close review of the existing course, comparison against the medical device commercialization sequence, and identification of recurring learner-support gaps. That process reflects evaluation thinking: noticing what is present, what is missing, and what kinds of supports would better align content with learner performance.
             </p>
             <ul>
-              <li>The regulatory additions and gap analysis documents show how I combined source course review with external research and evaluative reasoning.</li>
-              <li>I used course materials, milestone logic, and domain-specific considerations to identify where more learner support was needed.</li>
-              <li>This work deepened my view of evaluation as an ongoing design resource, not just a final measurement step.</li>
+              <li>I used analysis of existing materials to identify design problems and priorities.</li>
+              <li>I connected revisions back to evidence from the course structure and related artifacts.</li>
+              <li>This shaped my current thinking by reinforcing that LXD decisions should be grounded in inquiry and evaluation, not only intuition.</li>
             </ul>
             <div class="artifact-links">
-              <a class="artifact-link" href="assets/docs/regulatory-affairs-additions.pdf" target="_blank">Evidence: Regulatory Affairs Additions</a>
-              <a class="artifact-link" href="assets/docs/gaps.pdf" target="_blank">Evidence: GAPS Document</a>
+              <a class="artifact-link" href="assets/docs/integrated-gap-analysis-learning-goals.pdf" target="_blank">Gap analysis</a>
+              <a class="artifact-link" href="assets/docs/gaps.pdf" target="_blank">GAPS</a>
+              <a class="artifact-link" href="assets/docs/regulatory-affairs-additions.pdf" target="_blank">Regulatory additions</a>
             </div>
           </article>
         </div>
       </div>
     </section>
-
 
     <section class="section" id="documents">
       <div class="container">
@@ -1124,7 +1082,7 @@
           <span class="eyebrow">Supporting Documents</span>
           <h2>Project files and design materials</h2>
           <p class="lead">
-            These files document the broader analysis and design work that informed the Canvas revisions, including gap analysis, learning goals, learner-facing templates, commercialization timeline work, and supporting course materials. Several of these documents are also linked throughout the case study above so that the portfolio can function as a professional resource as well as a final course submission.
+            These files document the broader analysis and design work that informed the Canvas revisions, including gap analysis, learning goals, learner-facing templates, commercialization timeline work, and supporting course materials.
           </p>
         </div>
 
